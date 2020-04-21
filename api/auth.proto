@@ -24,15 +24,17 @@ message GenerateTokenResponse {
     Token token = 1;
 }
 
-message ValidateTokenRequest {
+message RetrieveTokenInformationRequest {
     string accessToken = 1;
 }
 
-message ValidateTokenResponse {
-
+message RetrieveTokenInformationResponse {
+    string email = 1;
+    int64 expiresAt = 2;
+    int64 issuedAt = 3;
 }
 
 service CompanyServices {
     rpc GenerateToken(GenerateTokenRequest) returns (GenerateTokenResponse) {}
-    rpc ValidateToken(ValidateTokenRequest) returns (ValidateTokenResponse) {}
+    rpc RetrieveTokenInformation(RetrieveTokenInformationRequest) returns (RetrieveTokenInformationResponse) {}
 }

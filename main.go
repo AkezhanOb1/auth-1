@@ -4,6 +4,10 @@ import (
 	"log"
 	"net"
 	"google.golang.org/grpc"
+
+	"github.com/AkezhanOb1/auth/services"
+	pb "github.com/AkezhanOb1/auth/api"
+
 )
 
 func main() {
@@ -16,6 +20,7 @@ func main() {
 
 	s := grpc.NewServer()
 
+	pb.RegisterCompanyServicesServer(s, &services.TokenServer{})
 	err = s.Serve(lis)
 	if err != nil {
 		panic(err)

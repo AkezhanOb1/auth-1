@@ -249,7 +249,7 @@ func (x *GenerateTokenResponse) GetToken() *Token {
 	return nil
 }
 
-type ValidateTokenRequest struct {
+type RetrieveTokenInformationRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -257,8 +257,8 @@ type ValidateTokenRequest struct {
 	AccessToken string `protobuf:"bytes,1,opt,name=accessToken,proto3" json:"accessToken,omitempty"`
 }
 
-func (x *ValidateTokenRequest) Reset() {
-	*x = ValidateTokenRequest{}
+func (x *RetrieveTokenInformationRequest) Reset() {
+	*x = RetrieveTokenInformationRequest{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_auth_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -266,13 +266,13 @@ func (x *ValidateTokenRequest) Reset() {
 	}
 }
 
-func (x *ValidateTokenRequest) String() string {
+func (x *RetrieveTokenInformationRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ValidateTokenRequest) ProtoMessage() {}
+func (*RetrieveTokenInformationRequest) ProtoMessage() {}
 
-func (x *ValidateTokenRequest) ProtoReflect() protoreflect.Message {
+func (x *RetrieveTokenInformationRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_auth_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -284,26 +284,30 @@ func (x *ValidateTokenRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ValidateTokenRequest.ProtoReflect.Descriptor instead.
-func (*ValidateTokenRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use RetrieveTokenInformationRequest.ProtoReflect.Descriptor instead.
+func (*RetrieveTokenInformationRequest) Descriptor() ([]byte, []int) {
 	return file_auth_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *ValidateTokenRequest) GetAccessToken() string {
+func (x *RetrieveTokenInformationRequest) GetAccessToken() string {
 	if x != nil {
 		return x.AccessToken
 	}
 	return ""
 }
 
-type ValidateTokenResponse struct {
+type RetrieveTokenInformationResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
+
+	Email     string `protobuf:"bytes,1,opt,name=email,proto3" json:"email,omitempty"`
+	ExpiresAt int64  `protobuf:"varint,2,opt,name=expiresAt,proto3" json:"expiresAt,omitempty"`
+	IssuedAt  int64  `protobuf:"varint,3,opt,name=issuedAt,proto3" json:"issuedAt,omitempty"`
 }
 
-func (x *ValidateTokenResponse) Reset() {
-	*x = ValidateTokenResponse{}
+func (x *RetrieveTokenInformationResponse) Reset() {
+	*x = RetrieveTokenInformationResponse{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_auth_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -311,13 +315,13 @@ func (x *ValidateTokenResponse) Reset() {
 	}
 }
 
-func (x *ValidateTokenResponse) String() string {
+func (x *RetrieveTokenInformationResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ValidateTokenResponse) ProtoMessage() {}
+func (*RetrieveTokenInformationResponse) ProtoMessage() {}
 
-func (x *ValidateTokenResponse) ProtoReflect() protoreflect.Message {
+func (x *RetrieveTokenInformationResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_auth_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -329,9 +333,30 @@ func (x *ValidateTokenResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ValidateTokenResponse.ProtoReflect.Descriptor instead.
-func (*ValidateTokenResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use RetrieveTokenInformationResponse.ProtoReflect.Descriptor instead.
+func (*RetrieveTokenInformationResponse) Descriptor() ([]byte, []int) {
 	return file_auth_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *RetrieveTokenInformationResponse) GetEmail() string {
+	if x != nil {
+		return x.Email
+	}
+	return ""
+}
+
+func (x *RetrieveTokenInformationResponse) GetExpiresAt() int64 {
+	if x != nil {
+		return x.ExpiresAt
+	}
+	return 0
+}
+
+func (x *RetrieveTokenInformationResponse) GetIssuedAt() int64 {
+	if x != nil {
+		return x.IssuedAt
+	}
+	return 0
 }
 
 var File_auth_proto protoreflect.FileDescriptor
@@ -360,24 +385,32 @@ var file_auth_proto_rawDesc = []byte{
 	0x72, 0x61, 0x74, 0x65, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
 	0x65, 0x12, 0x21, 0x0a, 0x05, 0x74, 0x6f, 0x6b, 0x65, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b,
 	0x32, 0x0b, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x52, 0x05, 0x74,
-	0x6f, 0x6b, 0x65, 0x6e, 0x22, 0x38, 0x0a, 0x14, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x65,
-	0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x20, 0x0a, 0x0b,
-	0x61, 0x63, 0x63, 0x65, 0x73, 0x73, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x09, 0x52, 0x0b, 0x61, 0x63, 0x63, 0x65, 0x73, 0x73, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x22, 0x17,
-	0x0a, 0x15, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x65, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x52,
-	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x32, 0xa9, 0x01, 0x0a, 0x0f, 0x43, 0x6f, 0x6d, 0x70,
-	0x61, 0x6e, 0x79, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x12, 0x4a, 0x0a, 0x0d, 0x47,
-	0x65, 0x6e, 0x65, 0x72, 0x61, 0x74, 0x65, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x12, 0x1a, 0x2e, 0x61,
-	0x75, 0x74, 0x68, 0x2e, 0x47, 0x65, 0x6e, 0x65, 0x72, 0x61, 0x74, 0x65, 0x54, 0x6f, 0x6b, 0x65,
-	0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1b, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e,
-	0x47, 0x65, 0x6e, 0x65, 0x72, 0x61, 0x74, 0x65, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x4a, 0x0a, 0x0d, 0x56, 0x61, 0x6c, 0x69, 0x64,
-	0x61, 0x74, 0x65, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x12, 0x1a, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e,
-	0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x65, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x52, 0x65, 0x71,
-	0x75, 0x65, 0x73, 0x74, 0x1a, 0x1b, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x56, 0x61, 0x6c, 0x69,
-	0x64, 0x61, 0x74, 0x65, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
-	0x65, 0x22, 0x00, 0x42, 0x08, 0x5a, 0x06, 0x2e, 0x3b, 0x61, 0x75, 0x74, 0x68, 0x62, 0x06, 0x70,
-	0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x6f, 0x6b, 0x65, 0x6e, 0x22, 0x43, 0x0a, 0x1f, 0x52, 0x65, 0x74, 0x72, 0x69, 0x65, 0x76, 0x65,
+	0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x49, 0x6e, 0x66, 0x6f, 0x72, 0x6d, 0x61, 0x74, 0x69, 0x6f, 0x6e,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x20, 0x0a, 0x0b, 0x61, 0x63, 0x63, 0x65, 0x73,
+	0x73, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x61, 0x63,
+	0x63, 0x65, 0x73, 0x73, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x22, 0x72, 0x0a, 0x20, 0x52, 0x65, 0x74,
+	0x72, 0x69, 0x65, 0x76, 0x65, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x49, 0x6e, 0x66, 0x6f, 0x72, 0x6d,
+	0x61, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x14, 0x0a,
+	0x05, 0x65, 0x6d, 0x61, 0x69, 0x6c, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x65, 0x6d,
+	0x61, 0x69, 0x6c, 0x12, 0x1c, 0x0a, 0x09, 0x65, 0x78, 0x70, 0x69, 0x72, 0x65, 0x73, 0x41, 0x74,
+	0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x09, 0x65, 0x78, 0x70, 0x69, 0x72, 0x65, 0x73, 0x41,
+	0x74, 0x12, 0x1a, 0x0a, 0x08, 0x69, 0x73, 0x73, 0x75, 0x65, 0x64, 0x41, 0x74, 0x18, 0x03, 0x20,
+	0x01, 0x28, 0x03, 0x52, 0x08, 0x69, 0x73, 0x73, 0x75, 0x65, 0x64, 0x41, 0x74, 0x32, 0xca, 0x01,
+	0x0a, 0x0f, 0x43, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
+	0x73, 0x12, 0x4a, 0x0a, 0x0d, 0x47, 0x65, 0x6e, 0x65, 0x72, 0x61, 0x74, 0x65, 0x54, 0x6f, 0x6b,
+	0x65, 0x6e, 0x12, 0x1a, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x47, 0x65, 0x6e, 0x65, 0x72, 0x61,
+	0x74, 0x65, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1b,
+	0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x47, 0x65, 0x6e, 0x65, 0x72, 0x61, 0x74, 0x65, 0x54, 0x6f,
+	0x6b, 0x65, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x6b, 0x0a,
+	0x18, 0x52, 0x65, 0x74, 0x72, 0x69, 0x65, 0x76, 0x65, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x49, 0x6e,
+	0x66, 0x6f, 0x72, 0x6d, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x25, 0x2e, 0x61, 0x75, 0x74, 0x68,
+	0x2e, 0x52, 0x65, 0x74, 0x72, 0x69, 0x65, 0x76, 0x65, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x49, 0x6e,
+	0x66, 0x6f, 0x72, 0x6d, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x1a, 0x26, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x52, 0x65, 0x74, 0x72, 0x69, 0x65, 0x76, 0x65,
+	0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x49, 0x6e, 0x66, 0x6f, 0x72, 0x6d, 0x61, 0x74, 0x69, 0x6f, 0x6e,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x42, 0x08, 0x5a, 0x06, 0x2e, 0x3b,
+	0x61, 0x75, 0x74, 0x68, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -394,20 +427,20 @@ func file_auth_proto_rawDescGZIP() []byte {
 
 var file_auth_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_auth_proto_goTypes = []interface{}{
-	(*ClientCredentials)(nil),     // 0: auth.ClientCredentials
-	(*Token)(nil),                 // 1: auth.Token
-	(*GenerateTokenRequest)(nil),  // 2: auth.GenerateTokenRequest
-	(*GenerateTokenResponse)(nil), // 3: auth.GenerateTokenResponse
-	(*ValidateTokenRequest)(nil),  // 4: auth.ValidateTokenRequest
-	(*ValidateTokenResponse)(nil), // 5: auth.ValidateTokenResponse
+	(*ClientCredentials)(nil),                // 0: auth.ClientCredentials
+	(*Token)(nil),                            // 1: auth.Token
+	(*GenerateTokenRequest)(nil),             // 2: auth.GenerateTokenRequest
+	(*GenerateTokenResponse)(nil),            // 3: auth.GenerateTokenResponse
+	(*RetrieveTokenInformationRequest)(nil),  // 4: auth.RetrieveTokenInformationRequest
+	(*RetrieveTokenInformationResponse)(nil), // 5: auth.RetrieveTokenInformationResponse
 }
 var file_auth_proto_depIdxs = []int32{
 	0, // 0: auth.GenerateTokenRequest.credentials:type_name -> auth.ClientCredentials
 	1, // 1: auth.GenerateTokenResponse.token:type_name -> auth.Token
 	2, // 2: auth.CompanyServices.GenerateToken:input_type -> auth.GenerateTokenRequest
-	4, // 3: auth.CompanyServices.ValidateToken:input_type -> auth.ValidateTokenRequest
+	4, // 3: auth.CompanyServices.RetrieveTokenInformation:input_type -> auth.RetrieveTokenInformationRequest
 	3, // 4: auth.CompanyServices.GenerateToken:output_type -> auth.GenerateTokenResponse
-	5, // 5: auth.CompanyServices.ValidateToken:output_type -> auth.ValidateTokenResponse
+	5, // 5: auth.CompanyServices.RetrieveTokenInformation:output_type -> auth.RetrieveTokenInformationResponse
 	4, // [4:6] is the sub-list for method output_type
 	2, // [2:4] is the sub-list for method input_type
 	2, // [2:2] is the sub-list for extension type_name
@@ -470,7 +503,7 @@ func file_auth_proto_init() {
 			}
 		}
 		file_auth_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ValidateTokenRequest); i {
+			switch v := v.(*RetrieveTokenInformationRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -482,7 +515,7 @@ func file_auth_proto_init() {
 			}
 		}
 		file_auth_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ValidateTokenResponse); i {
+			switch v := v.(*RetrieveTokenInformationResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -527,7 +560,7 @@ const _ = grpc.SupportPackageIsVersion6
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type CompanyServicesClient interface {
 	GenerateToken(ctx context.Context, in *GenerateTokenRequest, opts ...grpc.CallOption) (*GenerateTokenResponse, error)
-	ValidateToken(ctx context.Context, in *ValidateTokenRequest, opts ...grpc.CallOption) (*ValidateTokenResponse, error)
+	RetrieveTokenInformation(ctx context.Context, in *RetrieveTokenInformationRequest, opts ...grpc.CallOption) (*RetrieveTokenInformationResponse, error)
 }
 
 type companyServicesClient struct {
@@ -547,9 +580,9 @@ func (c *companyServicesClient) GenerateToken(ctx context.Context, in *GenerateT
 	return out, nil
 }
 
-func (c *companyServicesClient) ValidateToken(ctx context.Context, in *ValidateTokenRequest, opts ...grpc.CallOption) (*ValidateTokenResponse, error) {
-	out := new(ValidateTokenResponse)
-	err := c.cc.Invoke(ctx, "/auth.CompanyServices/ValidateToken", in, out, opts...)
+func (c *companyServicesClient) RetrieveTokenInformation(ctx context.Context, in *RetrieveTokenInformationRequest, opts ...grpc.CallOption) (*RetrieveTokenInformationResponse, error) {
+	out := new(RetrieveTokenInformationResponse)
+	err := c.cc.Invoke(ctx, "/auth.CompanyServices/RetrieveTokenInformation", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -559,7 +592,7 @@ func (c *companyServicesClient) ValidateToken(ctx context.Context, in *ValidateT
 // CompanyServicesServer is the server API for CompanyServices service.
 type CompanyServicesServer interface {
 	GenerateToken(context.Context, *GenerateTokenRequest) (*GenerateTokenResponse, error)
-	ValidateToken(context.Context, *ValidateTokenRequest) (*ValidateTokenResponse, error)
+	RetrieveTokenInformation(context.Context, *RetrieveTokenInformationRequest) (*RetrieveTokenInformationResponse, error)
 }
 
 // UnimplementedCompanyServicesServer can be embedded to have forward compatible implementations.
@@ -569,8 +602,8 @@ type UnimplementedCompanyServicesServer struct {
 func (*UnimplementedCompanyServicesServer) GenerateToken(context.Context, *GenerateTokenRequest) (*GenerateTokenResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GenerateToken not implemented")
 }
-func (*UnimplementedCompanyServicesServer) ValidateToken(context.Context, *ValidateTokenRequest) (*ValidateTokenResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ValidateToken not implemented")
+func (*UnimplementedCompanyServicesServer) RetrieveTokenInformation(context.Context, *RetrieveTokenInformationRequest) (*RetrieveTokenInformationResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RetrieveTokenInformation not implemented")
 }
 
 func RegisterCompanyServicesServer(s *grpc.Server, srv CompanyServicesServer) {
@@ -595,20 +628,20 @@ func _CompanyServices_GenerateToken_Handler(srv interface{}, ctx context.Context
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CompanyServices_ValidateToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ValidateTokenRequest)
+func _CompanyServices_RetrieveTokenInformation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RetrieveTokenInformationRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CompanyServicesServer).ValidateToken(ctx, in)
+		return srv.(CompanyServicesServer).RetrieveTokenInformation(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/auth.CompanyServices/ValidateToken",
+		FullMethod: "/auth.CompanyServices/RetrieveTokenInformation",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CompanyServicesServer).ValidateToken(ctx, req.(*ValidateTokenRequest))
+		return srv.(CompanyServicesServer).RetrieveTokenInformation(ctx, req.(*RetrieveTokenInformationRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -622,8 +655,8 @@ var _CompanyServices_serviceDesc = grpc.ServiceDesc{
 			Handler:    _CompanyServices_GenerateToken_Handler,
 		},
 		{
-			MethodName: "ValidateToken",
-			Handler:    _CompanyServices_ValidateToken_Handler,
+			MethodName: "RetrieveTokenInformation",
+			Handler:    _CompanyServices_RetrieveTokenInformation_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
