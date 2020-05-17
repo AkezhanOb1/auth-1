@@ -6,7 +6,7 @@ import (
 	"google.golang.org/grpc"
 
 	"github.com/AkezhanOb1/auth/services"
-	pb "github.com/AkezhanOb1/auth/api"
+	pb "github.com/AkezhanOb1/auth/api/business"
 
 )
 

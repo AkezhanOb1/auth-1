@@ -34,7 +34,28 @@ message RetrieveTokenInformationResponse {
     int64 issuedAt = 3;
 }
 
+message GenerateCustomerTokenRequest {
+    ClientCredentials credentials = 1;
+}
+
+message GenerateCustomerTokenResponse {
+    Token token = 1;
+}
+
+message RetrieveCustomerTokenInformationRequest {
+    string accessToken = 1;
+}
+
+message RetrieveCustomerTokenInformationResponse {
+    string email = 1;
+    int64 expiresAt = 2;
+    int64 issuedAt = 3;
+}
+
 service CompanyServices {
     rpc GenerateToken(GenerateTokenRequest) returns (GenerateTokenResponse) {}
     rpc RetrieveTokenInformation(RetrieveTokenInformationRequest) returns (RetrieveTokenInformationResponse) {}
+
+    rpc GenerateCustomerToken(GenerateCustomerTokenRequest) returns (GenerateCustomerTokenResponse) {}
+    rpc RetrieveCustomerTokenInformation(RetrieveCustomerTokenInformationRequest) returns (RetrieveCustomerTokenInformationResponse) {}
 }

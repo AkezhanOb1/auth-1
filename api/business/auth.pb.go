@@ -359,6 +359,210 @@ func (x *RetrieveTokenInformationResponse) GetIssuedAt() int64 {
 	return 0
 }
 
+type GenerateCustomerTokenRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Credentials *ClientCredentials `protobuf:"bytes,1,opt,name=credentials,proto3" json:"credentials,omitempty"`
+}
+
+func (x *GenerateCustomerTokenRequest) Reset() {
+	*x = GenerateCustomerTokenRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_auth_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GenerateCustomerTokenRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GenerateCustomerTokenRequest) ProtoMessage() {}
+
+func (x *GenerateCustomerTokenRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_auth_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GenerateCustomerTokenRequest.ProtoReflect.Descriptor instead.
+func (*GenerateCustomerTokenRequest) Descriptor() ([]byte, []int) {
+	return file_auth_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *GenerateCustomerTokenRequest) GetCredentials() *ClientCredentials {
+	if x != nil {
+		return x.Credentials
+	}
+	return nil
+}
+
+type GenerateCustomerTokenResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Token *Token `protobuf:"bytes,1,opt,name=token,proto3" json:"token,omitempty"`
+}
+
+func (x *GenerateCustomerTokenResponse) Reset() {
+	*x = GenerateCustomerTokenResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_auth_proto_msgTypes[7]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GenerateCustomerTokenResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GenerateCustomerTokenResponse) ProtoMessage() {}
+
+func (x *GenerateCustomerTokenResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_auth_proto_msgTypes[7]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GenerateCustomerTokenResponse.ProtoReflect.Descriptor instead.
+func (*GenerateCustomerTokenResponse) Descriptor() ([]byte, []int) {
+	return file_auth_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *GenerateCustomerTokenResponse) GetToken() *Token {
+	if x != nil {
+		return x.Token
+	}
+	return nil
+}
+
+type RetrieveCustomerTokenInformationRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	AccessToken string `protobuf:"bytes,1,opt,name=accessToken,proto3" json:"accessToken,omitempty"`
+}
+
+func (x *RetrieveCustomerTokenInformationRequest) Reset() {
+	*x = RetrieveCustomerTokenInformationRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_auth_proto_msgTypes[8]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *RetrieveCustomerTokenInformationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RetrieveCustomerTokenInformationRequest) ProtoMessage() {}
+
+func (x *RetrieveCustomerTokenInformationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_auth_proto_msgTypes[8]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RetrieveCustomerTokenInformationRequest.ProtoReflect.Descriptor instead.
+func (*RetrieveCustomerTokenInformationRequest) Descriptor() ([]byte, []int) {
+	return file_auth_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *RetrieveCustomerTokenInformationRequest) GetAccessToken() string {
+	if x != nil {
+		return x.AccessToken
+	}
+	return ""
+}
+
+type RetrieveCustomerTokenInformationResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Email     string `protobuf:"bytes,1,opt,name=email,proto3" json:"email,omitempty"`
+	ExpiresAt int64  `protobuf:"varint,2,opt,name=expiresAt,proto3" json:"expiresAt,omitempty"`
+	IssuedAt  int64  `protobuf:"varint,3,opt,name=issuedAt,proto3" json:"issuedAt,omitempty"`
+}
+
+func (x *RetrieveCustomerTokenInformationResponse) Reset() {
+	*x = RetrieveCustomerTokenInformationResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_auth_proto_msgTypes[9]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *RetrieveCustomerTokenInformationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RetrieveCustomerTokenInformationResponse) ProtoMessage() {}
+
+func (x *RetrieveCustomerTokenInformationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_auth_proto_msgTypes[9]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RetrieveCustomerTokenInformationResponse.ProtoReflect.Descriptor instead.
+func (*RetrieveCustomerTokenInformationResponse) Descriptor() ([]byte, []int) {
+	return file_auth_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *RetrieveCustomerTokenInformationResponse) GetEmail() string {
+	if x != nil {
+		return x.Email
+	}
+	return ""
+}
+
+func (x *RetrieveCustomerTokenInformationResponse) GetExpiresAt() int64 {
+	if x != nil {
+		return x.ExpiresAt
+	}
+	return 0
+}
+
+func (x *RetrieveCustomerTokenInformationResponse) GetIssuedAt() int64 {
+	if x != nil {
+		return x.IssuedAt
+	}
+	return 0
+}
+
 var File_auth_proto protoreflect.FileDescriptor
 
 var file_auth_proto_rawDesc = []byte{
@@ -396,21 +600,58 @@ var file_auth_proto_rawDesc = []byte{
 	0x61, 0x69, 0x6c, 0x12, 0x1c, 0x0a, 0x09, 0x65, 0x78, 0x70, 0x69, 0x72, 0x65, 0x73, 0x41, 0x74,
 	0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x09, 0x65, 0x78, 0x70, 0x69, 0x72, 0x65, 0x73, 0x41,
 	0x74, 0x12, 0x1a, 0x0a, 0x08, 0x69, 0x73, 0x73, 0x75, 0x65, 0x64, 0x41, 0x74, 0x18, 0x03, 0x20,
-	0x01, 0x28, 0x03, 0x52, 0x08, 0x69, 0x73, 0x73, 0x75, 0x65, 0x64, 0x41, 0x74, 0x32, 0xca, 0x01,
-	0x0a, 0x0f, 0x43, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
-	0x73, 0x12, 0x4a, 0x0a, 0x0d, 0x47, 0x65, 0x6e, 0x65, 0x72, 0x61, 0x74, 0x65, 0x54, 0x6f, 0x6b,
-	0x65, 0x6e, 0x12, 0x1a, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x47, 0x65, 0x6e, 0x65, 0x72, 0x61,
-	0x74, 0x65, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1b,
-	0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x47, 0x65, 0x6e, 0x65, 0x72, 0x61, 0x74, 0x65, 0x54, 0x6f,
-	0x6b, 0x65, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x6b, 0x0a,
-	0x18, 0x52, 0x65, 0x74, 0x72, 0x69, 0x65, 0x76, 0x65, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x49, 0x6e,
-	0x66, 0x6f, 0x72, 0x6d, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x25, 0x2e, 0x61, 0x75, 0x74, 0x68,
-	0x2e, 0x52, 0x65, 0x74, 0x72, 0x69, 0x65, 0x76, 0x65, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x49, 0x6e,
-	0x66, 0x6f, 0x72, 0x6d, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
-	0x1a, 0x26, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x52, 0x65, 0x74, 0x72, 0x69, 0x65, 0x76, 0x65,
+	0x01, 0x28, 0x03, 0x52, 0x08, 0x69, 0x73, 0x73, 0x75, 0x65, 0x64, 0x41, 0x74, 0x22, 0x59, 0x0a,
+	0x1c, 0x47, 0x65, 0x6e, 0x65, 0x72, 0x61, 0x74, 0x65, 0x43, 0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65,
+	0x72, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x39, 0x0a,
+	0x0b, 0x63, 0x72, 0x65, 0x64, 0x65, 0x6e, 0x74, 0x69, 0x61, 0x6c, 0x73, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x0b, 0x32, 0x17, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x43, 0x6c, 0x69, 0x65, 0x6e, 0x74,
+	0x43, 0x72, 0x65, 0x64, 0x65, 0x6e, 0x74, 0x69, 0x61, 0x6c, 0x73, 0x52, 0x0b, 0x63, 0x72, 0x65,
+	0x64, 0x65, 0x6e, 0x74, 0x69, 0x61, 0x6c, 0x73, 0x22, 0x42, 0x0a, 0x1d, 0x47, 0x65, 0x6e, 0x65,
+	0x72, 0x61, 0x74, 0x65, 0x43, 0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65, 0x72, 0x54, 0x6f, 0x6b, 0x65,
+	0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x21, 0x0a, 0x05, 0x74, 0x6f, 0x6b,
+	0x65, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0b, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e,
+	0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x52, 0x05, 0x74, 0x6f, 0x6b, 0x65, 0x6e, 0x22, 0x4b, 0x0a, 0x27,
+	0x52, 0x65, 0x74, 0x72, 0x69, 0x65, 0x76, 0x65, 0x43, 0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65, 0x72,
 	0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x49, 0x6e, 0x66, 0x6f, 0x72, 0x6d, 0x61, 0x74, 0x69, 0x6f, 0x6e,
-	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x42, 0x08, 0x5a, 0x06, 0x2e, 0x3b,
-	0x61, 0x75, 0x74, 0x68, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x20, 0x0a, 0x0b, 0x61, 0x63, 0x63, 0x65, 0x73,
+	0x73, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x61, 0x63,
+	0x63, 0x65, 0x73, 0x73, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x22, 0x7a, 0x0a, 0x28, 0x52, 0x65, 0x74,
+	0x72, 0x69, 0x65, 0x76, 0x65, 0x43, 0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65, 0x72, 0x54, 0x6f, 0x6b,
+	0x65, 0x6e, 0x49, 0x6e, 0x66, 0x6f, 0x72, 0x6d, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x65, 0x6d, 0x61, 0x69, 0x6c, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x65, 0x6d, 0x61, 0x69, 0x6c, 0x12, 0x1c, 0x0a, 0x09, 0x65,
+	0x78, 0x70, 0x69, 0x72, 0x65, 0x73, 0x41, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x09,
+	0x65, 0x78, 0x70, 0x69, 0x72, 0x65, 0x73, 0x41, 0x74, 0x12, 0x1a, 0x0a, 0x08, 0x69, 0x73, 0x73,
+	0x75, 0x65, 0x64, 0x41, 0x74, 0x18, 0x03, 0x20, 0x01, 0x28, 0x03, 0x52, 0x08, 0x69, 0x73, 0x73,
+	0x75, 0x65, 0x64, 0x41, 0x74, 0x32, 0xb4, 0x03, 0x0a, 0x0f, 0x43, 0x6f, 0x6d, 0x70, 0x61, 0x6e,
+	0x79, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x12, 0x4a, 0x0a, 0x0d, 0x47, 0x65, 0x6e,
+	0x65, 0x72, 0x61, 0x74, 0x65, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x12, 0x1a, 0x2e, 0x61, 0x75, 0x74,
+	0x68, 0x2e, 0x47, 0x65, 0x6e, 0x65, 0x72, 0x61, 0x74, 0x65, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1b, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x47, 0x65,
+	0x6e, 0x65, 0x72, 0x61, 0x74, 0x65, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x6b, 0x0a, 0x18, 0x52, 0x65, 0x74, 0x72, 0x69, 0x65, 0x76,
+	0x65, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x49, 0x6e, 0x66, 0x6f, 0x72, 0x6d, 0x61, 0x74, 0x69, 0x6f,
+	0x6e, 0x12, 0x25, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x52, 0x65, 0x74, 0x72, 0x69, 0x65, 0x76,
+	0x65, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x49, 0x6e, 0x66, 0x6f, 0x72, 0x6d, 0x61, 0x74, 0x69, 0x6f,
+	0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x26, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e,
+	0x52, 0x65, 0x74, 0x72, 0x69, 0x65, 0x76, 0x65, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x49, 0x6e, 0x66,
+	0x6f, 0x72, 0x6d, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x22, 0x00, 0x12, 0x62, 0x0a, 0x15, 0x47, 0x65, 0x6e, 0x65, 0x72, 0x61, 0x74, 0x65, 0x43, 0x75,
+	0x73, 0x74, 0x6f, 0x6d, 0x65, 0x72, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x12, 0x22, 0x2e, 0x61, 0x75,
+	0x74, 0x68, 0x2e, 0x47, 0x65, 0x6e, 0x65, 0x72, 0x61, 0x74, 0x65, 0x43, 0x75, 0x73, 0x74, 0x6f,
+	0x6d, 0x65, 0x72, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a,
+	0x23, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x47, 0x65, 0x6e, 0x65, 0x72, 0x61, 0x74, 0x65, 0x43,
+	0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65, 0x72, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x52, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x83, 0x01, 0x0a, 0x20, 0x52, 0x65, 0x74, 0x72, 0x69,
+	0x65, 0x76, 0x65, 0x43, 0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65, 0x72, 0x54, 0x6f, 0x6b, 0x65, 0x6e,
+	0x49, 0x6e, 0x66, 0x6f, 0x72, 0x6d, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x2d, 0x2e, 0x61, 0x75,
+	0x74, 0x68, 0x2e, 0x52, 0x65, 0x74, 0x72, 0x69, 0x65, 0x76, 0x65, 0x43, 0x75, 0x73, 0x74, 0x6f,
+	0x6d, 0x65, 0x72, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x49, 0x6e, 0x66, 0x6f, 0x72, 0x6d, 0x61, 0x74,
+	0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x2e, 0x2e, 0x61, 0x75, 0x74,
+	0x68, 0x2e, 0x52, 0x65, 0x74, 0x72, 0x69, 0x65, 0x76, 0x65, 0x43, 0x75, 0x73, 0x74, 0x6f, 0x6d,
+	0x65, 0x72, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x49, 0x6e, 0x66, 0x6f, 0x72, 0x6d, 0x61, 0x74, 0x69,
+	0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x42, 0x08, 0x5a, 0x06,
+	0x2e, 0x3b, 0x61, 0x75, 0x74, 0x68, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -425,27 +666,37 @@ func file_auth_proto_rawDescGZIP() []byte {
 	return file_auth_proto_rawDescData
 }
 
-var file_auth_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_auth_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
 var file_auth_proto_goTypes = []interface{}{
-	(*ClientCredentials)(nil),                // 0: auth.ClientCredentials
-	(*Token)(nil),                            // 1: auth.Token
-	(*GenerateTokenRequest)(nil),             // 2: auth.GenerateTokenRequest
-	(*GenerateTokenResponse)(nil),            // 3: auth.GenerateTokenResponse
-	(*RetrieveTokenInformationRequest)(nil),  // 4: auth.RetrieveTokenInformationRequest
-	(*RetrieveTokenInformationResponse)(nil), // 5: auth.RetrieveTokenInformationResponse
+	(*ClientCredentials)(nil),                        // 0: auth.ClientCredentials
+	(*Token)(nil),                                    // 1: auth.Token
+	(*GenerateTokenRequest)(nil),                     // 2: auth.GenerateTokenRequest
+	(*GenerateTokenResponse)(nil),                    // 3: auth.GenerateTokenResponse
+	(*RetrieveTokenInformationRequest)(nil),          // 4: auth.RetrieveTokenInformationRequest
+	(*RetrieveTokenInformationResponse)(nil),         // 5: auth.RetrieveTokenInformationResponse
+	(*GenerateCustomerTokenRequest)(nil),             // 6: auth.GenerateCustomerTokenRequest
+	(*GenerateCustomerTokenResponse)(nil),            // 7: auth.GenerateCustomerTokenResponse
+	(*RetrieveCustomerTokenInformationRequest)(nil),  // 8: auth.RetrieveCustomerTokenInformationRequest
+	(*RetrieveCustomerTokenInformationResponse)(nil), // 9: auth.RetrieveCustomerTokenInformationResponse
 }
 var file_auth_proto_depIdxs = []int32{
 	0, // 0: auth.GenerateTokenRequest.credentials:type_name -> auth.ClientCredentials
 	1, // 1: auth.GenerateTokenResponse.token:type_name -> auth.Token
-	2, // 2: auth.CompanyServices.GenerateToken:input_type -> auth.GenerateTokenRequest
-	4, // 3: auth.CompanyServices.RetrieveTokenInformation:input_type -> auth.RetrieveTokenInformationRequest
-	3, // 4: auth.CompanyServices.GenerateToken:output_type -> auth.GenerateTokenResponse
-	5, // 5: auth.CompanyServices.RetrieveTokenInformation:output_type -> auth.RetrieveTokenInformationResponse
-	4, // [4:6] is the sub-list for method output_type
-	2, // [2:4] is the sub-list for method input_type
-	2, // [2:2] is the sub-list for extension type_name
-	2, // [2:2] is the sub-list for extension extendee
-	0, // [0:2] is the sub-list for field type_name
+	0, // 2: auth.GenerateCustomerTokenRequest.credentials:type_name -> auth.ClientCredentials
+	1, // 3: auth.GenerateCustomerTokenResponse.token:type_name -> auth.Token
+	2, // 4: auth.CompanyServices.GenerateToken:input_type -> auth.GenerateTokenRequest
+	4, // 5: auth.CompanyServices.RetrieveTokenInformation:input_type -> auth.RetrieveTokenInformationRequest
+	6, // 6: auth.CompanyServices.GenerateCustomerToken:input_type -> auth.GenerateCustomerTokenRequest
+	8, // 7: auth.CompanyServices.RetrieveCustomerTokenInformation:input_type -> auth.RetrieveCustomerTokenInformationRequest
+	3, // 8: auth.CompanyServices.GenerateToken:output_type -> auth.GenerateTokenResponse
+	5, // 9: auth.CompanyServices.RetrieveTokenInformation:output_type -> auth.RetrieveTokenInformationResponse
+	7, // 10: auth.CompanyServices.GenerateCustomerToken:output_type -> auth.GenerateCustomerTokenResponse
+	9, // 11: auth.CompanyServices.RetrieveCustomerTokenInformation:output_type -> auth.RetrieveCustomerTokenInformationResponse
+	8, // [8:12] is the sub-list for method output_type
+	4, // [4:8] is the sub-list for method input_type
+	4, // [4:4] is the sub-list for extension type_name
+	4, // [4:4] is the sub-list for extension extendee
+	0, // [0:4] is the sub-list for field type_name
 }
 
 func init() { file_auth_proto_init() }
@@ -526,6 +777,54 @@ func file_auth_proto_init() {
 				return nil
 			}
 		}
+		file_auth_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GenerateCustomerTokenRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_auth_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GenerateCustomerTokenResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_auth_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*RetrieveCustomerTokenInformationRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_auth_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*RetrieveCustomerTokenInformationResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -533,7 +832,7 @@ func file_auth_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_auth_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   6,
+			NumMessages:   10,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -561,6 +860,8 @@ const _ = grpc.SupportPackageIsVersion6
 type CompanyServicesClient interface {
 	GenerateToken(ctx context.Context, in *GenerateTokenRequest, opts ...grpc.CallOption) (*GenerateTokenResponse, error)
 	RetrieveTokenInformation(ctx context.Context, in *RetrieveTokenInformationRequest, opts ...grpc.CallOption) (*RetrieveTokenInformationResponse, error)
+	GenerateCustomerToken(ctx context.Context, in *GenerateCustomerTokenRequest, opts ...grpc.CallOption) (*GenerateCustomerTokenResponse, error)
+	RetrieveCustomerTokenInformation(ctx context.Context, in *RetrieveCustomerTokenInformationRequest, opts ...grpc.CallOption) (*RetrieveCustomerTokenInformationResponse, error)
 }
 
 type companyServicesClient struct {
@@ -589,10 +890,30 @@ func (c *companyServicesClient) RetrieveTokenInformation(ctx context.Context, in
 	return out, nil
 }
 
+func (c *companyServicesClient) GenerateCustomerToken(ctx context.Context, in *GenerateCustomerTokenRequest, opts ...grpc.CallOption) (*GenerateCustomerTokenResponse, error) {
+	out := new(GenerateCustomerTokenResponse)
+	err := c.cc.Invoke(ctx, "/auth.CompanyServices/GenerateCustomerToken", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *companyServicesClient) RetrieveCustomerTokenInformation(ctx context.Context, in *RetrieveCustomerTokenInformationRequest, opts ...grpc.CallOption) (*RetrieveCustomerTokenInformationResponse, error) {
+	out := new(RetrieveCustomerTokenInformationResponse)
+	err := c.cc.Invoke(ctx, "/auth.CompanyServices/RetrieveCustomerTokenInformation", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // CompanyServicesServer is the server API for CompanyServices service.
 type CompanyServicesServer interface {
 	GenerateToken(context.Context, *GenerateTokenRequest) (*GenerateTokenResponse, error)
 	RetrieveTokenInformation(context.Context, *RetrieveTokenInformationRequest) (*RetrieveTokenInformationResponse, error)
+	GenerateCustomerToken(context.Context, *GenerateCustomerTokenRequest) (*GenerateCustomerTokenResponse, error)
+	RetrieveCustomerTokenInformation(context.Context, *RetrieveCustomerTokenInformationRequest) (*RetrieveCustomerTokenInformationResponse, error)
 }
 
 // UnimplementedCompanyServicesServer can be embedded to have forward compatible implementations.
@@ -604,6 +925,12 @@ func (*UnimplementedCompanyServicesServer) GenerateToken(context.Context, *Gener
 }
 func (*UnimplementedCompanyServicesServer) RetrieveTokenInformation(context.Context, *RetrieveTokenInformationRequest) (*RetrieveTokenInformationResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RetrieveTokenInformation not implemented")
+}
+func (*UnimplementedCompanyServicesServer) GenerateCustomerToken(context.Context, *GenerateCustomerTokenRequest) (*GenerateCustomerTokenResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GenerateCustomerToken not implemented")
+}
+func (*UnimplementedCompanyServicesServer) RetrieveCustomerTokenInformation(context.Context, *RetrieveCustomerTokenInformationRequest) (*RetrieveCustomerTokenInformationResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RetrieveCustomerTokenInformation not implemented")
 }
 
 func RegisterCompanyServicesServer(s *grpc.Server, srv CompanyServicesServer) {
@@ -646,6 +973,42 @@ func _CompanyServices_RetrieveTokenInformation_Handler(srv interface{}, ctx cont
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CompanyServices_GenerateCustomerToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GenerateCustomerTokenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CompanyServicesServer).GenerateCustomerToken(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/auth.CompanyServices/GenerateCustomerToken",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CompanyServicesServer).GenerateCustomerToken(ctx, req.(*GenerateCustomerTokenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CompanyServices_RetrieveCustomerTokenInformation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RetrieveCustomerTokenInformationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CompanyServicesServer).RetrieveCustomerTokenInformation(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/auth.CompanyServices/RetrieveCustomerTokenInformation",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CompanyServicesServer).RetrieveCustomerTokenInformation(ctx, req.(*RetrieveCustomerTokenInformationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _CompanyServices_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "auth.CompanyServices",
 	HandlerType: (*CompanyServicesServer)(nil),
@@ -657,6 +1020,14 @@ var _CompanyServices_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "RetrieveTokenInformation",
 			Handler:    _CompanyServices_RetrieveTokenInformation_Handler,
+		},
+		{
+			MethodName: "GenerateCustomerToken",
+			Handler:    _CompanyServices_GenerateCustomerToken_Handler,
+		},
+		{
+			MethodName: "RetrieveCustomerTokenInformation",
+			Handler:    _CompanyServices_RetrieveCustomerTokenInformation_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

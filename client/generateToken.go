@@ -6,7 +6,7 @@ import (
 	"google.golang.org/grpc"
 	"log"
 
-	pb "github.com/AkezhanOb1/auth/api"
+	pb "github.com/AkezhanOb1/auth/api/business"
 )
 
 func main() {
